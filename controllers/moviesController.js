@@ -5,7 +5,11 @@ function index(req, res) {
 
     connection.query(sql, (err, results) => {
         if (err) return res.status(500).json({ error: 'Query error' });
-        res.json(results);
+
+        res.json(results.map(result => ({
+            ...result,
+            image: process.env.SERVER_PATH + 'movies'
+        })));
     });
 }
 
