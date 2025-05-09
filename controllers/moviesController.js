@@ -8,7 +8,7 @@ function index(req, res) {
 
         res.json(results.map(result => ({
             ...result,
-            image: process.env.SERVER_PATH + 'movies'
+            image: process.env.SERVER_PATH + result.image
         })));
     });
 }
@@ -34,7 +34,7 @@ function show(req, res) {
 
             res.json({
                 ...currentMovie,
-                image: process.env.SERVER_PATH + 'movies',
+                image: process.env.SERVER_PATH + currentMovie.image,
                 reviews: resultsReviews
             });
         });
