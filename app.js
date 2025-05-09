@@ -3,6 +3,8 @@ const app = express();
 const port = 3000;
 const moviesRouter = require('./routers/moviesRouter');
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
     res.send('Home Movies');
 });
