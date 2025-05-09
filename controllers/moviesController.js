@@ -26,10 +26,20 @@ function show(req, res) {
 
         const currentMovie = results[0];
 
-        res.json({
-            ...currentMovie,
-            image: process.env.SERVER_PATH + 'movies'
+        const sql = 'SELECT * FROM reviews WHERE movie_id = ? ';
+
+        connection.query(sql, [id], (err, resultsReviews) => {
+            if (err) return res.status(500).json({ error: 'Query error' });
+
+
+            res.json({
+                ...currentMovie,
+                image: process.env.SERVER_PATH + 'movies',
+                reviews: resultsReviews
+            });
         });
+
+
     });
 
 }
