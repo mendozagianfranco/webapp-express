@@ -14,7 +14,23 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    res.send('show movies');
+
+    const { id } = req.params;
+
+    const sql = 'SELECT * FROM movies WHERE id= ?';
+
+    connection.query(sql, [id], (err, results) => {
+        if (err) return res.status(500).json({ error: 'Query error' });
+
+        if (results.length === 0) return res.status(404).json({ error: 'Movie not Found' });
+
+        const currentMovie = results[0];
+
+        res.json({
+            ...currentMovie,
+            image: process.env.SERVER_PATH + 'movies'
+        });
+    });
 
 }
 
