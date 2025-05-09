@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT;
-
 const moviesRouter = require('./routers/moviesRouter');
+const notFound = require('./middlewares/notFound');
 
 app.use(express.static('public'));
 
@@ -11,6 +11,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/movies', moviesRouter);
+
+app.use(notFound);
 
 app.listen(port, () => {
     console.log('Server in ascolto sul port: ' + port);
