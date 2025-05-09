@@ -1,7 +1,13 @@
 const connection = require('../data/db');
 
 function index(req, res) {
-    const sql = 'SELECT * FROM movies';
+    // const sql = 'SELECT * FROM movies';
+    const sql = `
+    SELECT movies.*,AVG(vote) AS voto_medio
+    FROM movies
+    LEFT JOIN reviews ON movies.id = reviews.movie_id
+    GROUP BY movies.id
+    `;
 
     connection.query(sql, (err, results) => {
         if (err) return res.status(500).json({ error: 'Query error' });
@@ -10,6 +16,7 @@ function index(req, res) {
             ...result,
             image: process.env.SERVER_PATH + result.image
         })));
+
     });
 }
 
