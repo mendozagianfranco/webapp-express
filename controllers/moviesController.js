@@ -2,12 +2,19 @@ const connection = require('../data/db');
 
 function index(req, res) {
     // const sql = 'SELECT * FROM movies';
-    const sql = `
+    const { search } = req.query;
+
+    let sql = `
     SELECT movies.*,AVG(vote) AS voto_medio
     FROM movies
     LEFT JOIN reviews ON movies.id = reviews.movie_id
-    GROUP BY movies.id
     `;
+
+    if (search) {
+        sql += `WHERE title LIKE "%${search}%" OR director LIKE "%${search}%" OR abstract LIKE "%${search}%"`;
+    }
+
+    sql += 'GROUP BY movies.id';
 
     connection.query(sql, (err, results) => {
         if (err) return res.status(500).json({ error: 'Query error' });
