@@ -35,7 +35,12 @@ function show(req, res) {
 
     const { id } = req.params;
 
-    const sql = 'SELECT * FROM movies WHERE id= ?';
+    const sql = `
+    SELECT movies.*,ROUND(AVG(vote),2) AS voto_medio
+    FROM movies
+    LEFT JOIN reviews ON movies.id = reviews.movie_id
+    WHERE movies.id = ?
+    `;
 
     connection.query(sql, [id], (err, results) => {
         if (err) return res.status(500).json({ error: 'Query error' });
