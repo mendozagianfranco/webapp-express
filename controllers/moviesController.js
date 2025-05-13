@@ -56,12 +56,15 @@ function show(req, res) {
                 reviews: resultsReviews
             });
         });
-
-
     });
 
 }
 
+
+function storeReview(req, res) {
+    res.send('Rotta per aggiungere una recensione');
+}
+
 module.exports = {
-    index, show
+    index, show, storeReview
 };
