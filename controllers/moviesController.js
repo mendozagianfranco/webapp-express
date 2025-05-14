@@ -67,7 +67,22 @@ function show(req, res) {
 
 
 function storeReview(req, res) {
-    res.send('Rotta per aggiungere una recensione');
+    const { id } = req.params;
+    const { name, vote, text } = req.body;
+
+    const sql = `INSERT INTO reviews (movie_id, name, vote, text) VALUES (?,?,?,?)`;
+
+    connection.query(sql, [id, name, vote, text], (err, results) => {
+        if (err) return res.status(500).json({ error: 'Query error' });
+
+        const sql = `SELECT * FROM reviews WHERE id = ${results.insertId}`;
+
+        connection.query(sql, (err, results) => {
+            if (err) return res.status(500).json({ error: 'Query error' });
+            res.status(201).json(results);
+        });
+
+    });
 }
 
 module.exports = {
