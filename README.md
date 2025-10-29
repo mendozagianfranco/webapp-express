@@ -2,6 +2,7 @@
 
 ## Descrizione
 Questa repository contiene un’applicazione **Express** collegata a un database MySQL, sviluppata per gestire film e relative recensioni.  
+Il front-end React collegato a questa API è disponibile qui: [Web App React](https://github.com/mendozagianfranco/webapp-react)
 
 ---
 
@@ -26,3 +27,23 @@ Questa repository contiene un’applicazione **Express** collegata a un database
 
 ## Bonus avanzato
 - Restituire nella rotta **index** anche la media delle recensioni dei film.
+
+## Installazione
+
+1. Clonare la repository:
+```bash
+git clone https://github.com/mendozagianfranco/webapp-express.git
+```
+2. Entrare nella cartella del progetto:
+```bash
+cd webapp-express
+```
+3. Installare le dipendenze:
+
+```bash
+npm install
+```
+4. Avviare il progetto:
+```bash
+npm run dev
+```
