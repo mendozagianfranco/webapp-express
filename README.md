@@ -1,19 +1,28 @@
-# Setup Web App Express
+# Web App Express
 
-## Ecco i primi step:
-1. Utilizzando il file in allegato, creiamo un database con MySQL Workbench
-2. Creiamo una nuova applicazione Express
-3. Colleghiamo l’app al db e verifichiamo che tutto funzioni
-4. Prepariamo una rotta index per ottenere la lista dei film
-5. Prepariamo una rotta show per ottenere i dettagli di un singolo film e le sue recensioni
+## Descrizione
+Questa repository contiene un’applicazione **Express** collegata a un database MySQL, sviluppata per gestire film e relative recensioni.  
+
+---
+
+## Step principali
+1. Creare un database MySQL utilizzando lo script fornito.
+2. Creare una nuova applicazione **Express**.
+3. Collegare l’applicazione al database e verificare la connessione.
+4. Preparare una rotta **index** per ottenere la lista dei film.
+5. Preparare una rotta **show** per ottenere i dettagli di un singolo film e le sue recensioni.
+
+---
 
 ## Bonus
-- Inserire delle immagini nel progetto express e dunque nel db
-- Inserire i dati di connessione al database come variabili d’ambiente
-- Inserire le vostre API in controller
-- Inserire le vostre rotte in un router
-- Inserire un middleware per le rotte inesistenti
-- Inserire un middleware per la gestione errori
+- Inserire immagini nel progetto Express e nel database.
+- Gestire i dati di connessione al database tramite variabili d’ambiente.
+- Strutturare il progetto con **controller** per le logiche delle API.
+- Organizzare le rotte tramite un **router** dedicato.
+- Implementare un **middleware** per le rotte inesistenti.
+- Implementare un **middleware** per la gestione degli errori.
 
-## Bonus Bonus;
-- Restituire nella INDEX anche la media delle recensioni dei vostri film;
+---
+
+## Bonus avanzato
+- Restituire nella rotta **index** anche la media delle recensioni dei film.
