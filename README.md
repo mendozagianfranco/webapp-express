@@ -7,11 +7,11 @@ Il front-end React collegato a questa API è disponibile qui: [Web App React](ht
 ---
 
 ## Step principali
-1. Creare un database MySQL utilizzando lo script fornito.
-2. Creare una nuova applicazione **Express**.
-3. Collegare l’applicazione al database e verificare la connessione.
-4. Preparare una rotta **index** per ottenere la lista dei film.
-5. Preparare una rotta **show** per ottenere i dettagli di un singolo film e le sue recensioni.
+1. Creare un database MySQL importando lo script db.sql presente nella root del progetto.
+2. Configurare le variabili d’ambiente (.env) con i dati di connessione al database (host, user, password, database).
+3. Avviare l’applicazione Express e verificare che la connessione al database funzioni correttamente.
+4. Preparare una rotta index per ottenere la lista dei film.
+5. Preparare una rotta show per ottenere i dettagli di un singolo film e le sue recensioni.
 
 ---
 
